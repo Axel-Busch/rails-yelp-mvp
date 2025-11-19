@@ -1,0 +1,10 @@
+<h2>Reviews:</h2>
+<h3> Average Rating: <%= @reviews.average_rating(@reviews) %>/5 </h3>
+
+<ul>
+  <% @reviews.each do |review| %>
+    <li class="list-group-item"><%= review.content %><br> The Rating is: <%= review.rating %></li>
+  <% end %>
+</ul>
+
+<%= link_to "Go back", restaurant_path(@restaurant) %>

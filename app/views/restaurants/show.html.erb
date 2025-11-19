@@ -1,0 +1,20 @@
+<h1><%= @restaurant.name %></h1>
+
+<h4>Location: <%= @restaurant.address %></h4>
+<h4>The restaurant has an <%= @restaurant.category %> cuisine</h4>
+<% if @restaurant.phone_number %>
+  <h4>Phone Number: <%= @restaurant.phone_number %></h4>
+<% end  %>
+<h4>The restaurant has: <%= @restaurant.reviews.count %> Reviews</h4>
+
+<%= link_to "Back to Homepage", restaurants_path %><br>
+<%= link_to "See reviews", restaurant_reviews_path(@restaurant) %><br>
+<br>
+
+
+<h2>Write a Review:</h2>
+<%= simple_form_for [@restaurant, @review] do |f| %>
+  <%= f.input :rating, collection: 0..5 %>
+  <%= f.input :content %>
+  <%= f.submit %>
+<% end %>
